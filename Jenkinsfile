@@ -9,9 +9,9 @@ pipeline {
         stage('my credentials'){
             
             steps{
-                withcredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
-                    sh 'echo $GIT_USERNAME'
-                    sh 'echo $GIT_PASSWORD'
+                withcredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'mypassword', usernameVariable: 'myusername')]){
+                    sh 'echo $myusername'
+                    sh 'echo $mypassword'
                 }
             }
         }
