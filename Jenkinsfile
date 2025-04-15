@@ -9,7 +9,7 @@ pipeline {
 
         stage('Test') {
             when {
-                branch 'chanti'
+                branch 'main'
             }
             steps {
                 echo 'Testing the project...'
