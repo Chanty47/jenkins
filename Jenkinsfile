@@ -11,6 +11,9 @@ pipeline {
             when {
                 branch 'chanti'
             }
+            steps {
+                echo 'Testing the project...'
+            }
                 
         }
         stage('test'){
