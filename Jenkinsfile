@@ -6,6 +6,14 @@ pipeline {
                 echo 'Building the project...'
             }
         }
+        stage('my credentials'){
+            withCredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'mypassword', usernameVariable: 'myusername')]){ {
+                steps{
+                    sh 'echo $myusername'
+                    sh 'echo $mypassword'
+                }
+            }
+        }
 
         stage('Test') {
             when {
