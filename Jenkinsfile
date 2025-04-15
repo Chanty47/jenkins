@@ -12,8 +12,7 @@ pipeline {
                 branch 'chanti'
             }
             steps {
-                echo "Current branch: ${env.BRANCH_NAME}"
-                echo 'Testing the project...'
+                echo "Current branch: ${env.BRANCH_NAME}
             }
                 
         }
