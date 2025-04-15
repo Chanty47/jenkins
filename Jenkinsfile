@@ -9,17 +9,16 @@ pipeline {
 
         stage('Test') {
             when {
-                not{
-                    branch 'chanti
-                }
+                branch 'chanti'
             }
             steps {
-                echo 'Testing the project...'
+                echo "Current branch: ${env.BRANCH_NAME}
             }
                 
         }
         stage('test'){
             steps{
+                echo "Current branch: ${env.BRANCH_NAME}"
                 echo 'the prrevios steps are negletcted by the when condition'
             }
         }
