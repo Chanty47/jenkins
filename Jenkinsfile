@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             when {
                 not{
-                    branch 'chanti
+                    branch 'main'
                 }
             }
             steps {
