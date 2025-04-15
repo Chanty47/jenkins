@@ -9,7 +9,7 @@ pipeline {
 
         stage('My Credentials') {
             steps {
-                withCredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'MYPASSWORD', usernameVariable: 'MYUSERNAME')]) {
+                usernamePassword(credentialsId: '1e', passwordVariable: 'MYPASSWORD', usernameVariable: 'MYUSERNAME'){
                     sh 'echo $MYUSERNAME'
                     sh 'echo $MYPASSWORD'
                 }
