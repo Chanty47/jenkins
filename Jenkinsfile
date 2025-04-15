@@ -7,10 +7,11 @@ pipeline {
             }
         }
         stage('my credentials'){
-            withCredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'mypassword', usernameVariable: 'myusername')]){ 
-                steps{
-                    sh 'echo $myusername'
-                    sh 'echo $mypassword'
+            
+            steps{
+                withcredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
+                    sh 'echo $GIT_USERNAME'
+                    sh 'echo $GIT_PASSWORD'
                 }
             }
         }
