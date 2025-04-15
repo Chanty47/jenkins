@@ -19,6 +19,7 @@ pipeline {
         }
         stage('test'){
             steps{
+                echo "Current branch: ${env.BRANCH_NAME}"
                 echo 'the prrevios steps are negletcted by the when condition'
             }
         }
