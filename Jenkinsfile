@@ -9,9 +9,12 @@ pipeline {
 
         stage('My Credentials') {
             steps {
-                usernamePassword(credentialsId: '1e', passwordVariable: 'MYPASSWORD', usernameVariable: 'MYUSERNAME'){
-                    sh 'echo $MYUSERNAME'
-                    sh 'echo $MYPASSWORD'
+                withCredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'MYPASSWORD', usernameVariable: 'MYUSERNAME')]) {
+                    script {
+                        // Temporarily print credentials without masking
+                        echo "MYUSERNAME: ${env.MYUSERNAME}"
+                        echo "MYPASSWORD: ${env.MYPASSWORD}"
+                    }
                 }
             }
         }
