@@ -9,13 +9,9 @@ pipeline {
 
         stage('Test') {
             when {
-                expression {
-                    return currentBuild.previousBuild.result == 'FAILURE'
-                }
+                branch 'chanti'
             }
-            steps {
-                echo 'Running tests because the previous build was successful.'
-            }
+                
         }
         stage('test'){
             steps{
