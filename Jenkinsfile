@@ -20,7 +20,7 @@ pipeline {
         }
         stage('test'){
             steps{
-                echo 'the build number of the current build is ${env.BUILD_NUMBER}'
+                echo "the build number of the current build is ${env.BUILD_NUMBER}"
             }
         }
     }
