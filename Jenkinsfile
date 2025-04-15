@@ -6,30 +6,30 @@ pipeline {
                 echo 'Building the project...'
             }
         }
-        stage('my credentials'){
-            
-            steps{
-                withcredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'mypassword', usernameVariable: 'myusername')]){
-                    sh 'echo $myusername'
-                    sh 'echo $mypassword'
+
+        stage('My Credentials') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'MYPASSWORD', usernameVariable: 'MYUSERNAME')]) {
+                    sh 'echo $MYUSERNAME'
+                    sh 'echo $MYPASSWORD'
                 }
             }
         }
 
         stage('Test') {
             when {
-                not{
+                not {
                     branch 'man'
                 }
             }
             steps {
                 echo 'Testing the project...'
             }
-                
         }
-        stage('test'){
-            steps{
-                echo "the build number of the current build is ${env.BUILD_NUMBER}"
+
+        stage('Build Info') {
+            steps {
+                echo "The build number of the current build is ${env.BUILD_NUMBER}"
             }
         }
     }
