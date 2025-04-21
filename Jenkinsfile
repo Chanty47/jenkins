@@ -1,34 +1,24 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building the project...'
-            }
-        }
-        stage('my credentials'){
-            withCredentials([usernamePassword(credentialsId: '1e', passwordVariable: 'mypassword', usernameVariable: 'myusername')]){ 
-                steps{
-                    sh 'echo $myusername'
-                    sh 'echo $mypassword'
-                }
-            }
-        }
+pipeline{
+    agent none
 
-        stage('Test') {
-            when {
-                not{
-                    branch 'man'
+    stages{
+        stage('matrix'){
+            matrix{
+                axes{
+                    axis{
+                        name 'OS'
+                        values 'Linux' , 'Windows' ,'IOS'
+                    }
                 }
-            }
-            steps {
-                echo 'Testing the project...'
-            }
-                
-        }
-        stage('test'){
-            steps{
-                echo "the build number of the current build is ${env.BUILD_NUMBER}"
+                agent 
+                stages{
+                    stage('tst'){
+                        steps{
+                            echo "current running os ${OS}"
+                        }
+
+                    }
+                }
             }
         }
     }
