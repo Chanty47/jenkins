@@ -14,5 +14,10 @@ pipeline {
                 echo "test phase on prod branch"
             }
         }
+        stage('test1') {
+            
+            steps {
+                echo "the current branch is ${env.BRANCH_NAMR}"
+            }
     }
 }
