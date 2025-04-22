@@ -19,5 +19,6 @@ pipeline {
             steps {
                 echo "the current branch is ${env.BRANCH_NAMR}"
             }
+        }
     }
 }
