@@ -9,7 +9,7 @@ pipeline{
 
                allOf{
                  expression {params.ENV=='prod'}
-                 branch 'version'
+                 branch 'prod'
                }
             }
             steps{
