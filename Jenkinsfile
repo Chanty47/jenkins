@@ -6,11 +6,7 @@ pipeline{
     stages{
         stage('test'){
             when{
-
-               allOf{
-                 expression {params.ENV=='prod'}
                  branch 'prod'
-               }
             }
             steps{
                 echo "test phase"
