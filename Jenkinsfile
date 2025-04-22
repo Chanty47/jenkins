@@ -1,15 +1,17 @@
-pipeline{
+pipeline {
     agent any
-    parameters{
-        choice(name:'ENV', choices:['prod','dev','qa'])
+    parameters {
+        choice(name: 'ENV', choices: ['prod', 'dev', 'qa'])
     }
-    stages{
-        stage('test'){
-            when{
-                 branch 'prod'
+    stages {
+        stage('test') {
+            when {
+                expression {
+                    return params.ENV == 'prod' && env.BRANCH_NAME == 'prod'
+                }
             }
-            steps{
-                echo "test phase"
+            steps {
+                echo "test phase on prod branch"
             }
         }
     }
