@@ -6,11 +6,8 @@ pipeline {
     stages {
         stage('test') {
             when {
-                oneOf{
+                anyOf{
                     branch 'prod'
-                expression {
-                    return params.ENV == 'prod' && env.BRANCH_NAME == 'prod'
-                }
                 }
                         
             }
