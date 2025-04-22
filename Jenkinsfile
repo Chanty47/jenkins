@@ -6,9 +6,14 @@ pipeline {
     stages {
         stage('test') {
             when {
+                anyOf{
+                    branch 'prod'
+                    
                 expression {
                     return params.ENV == 'prod' && env.BRANCH_NAME == 'prod'
                 }
+                }
+                        
             }
             steps {
                 echo "test phase on prod branch"
