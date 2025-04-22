@@ -4,7 +4,7 @@ pipeline {
         choice(name: 'ENV', choices: ['prod', 'dev', 'qa'])
     }
     stages {
-        stage('testing') {
+        stage('test') {
             when {
                 anyOf{
                     branch 'prod'
