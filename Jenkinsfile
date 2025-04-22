@@ -8,7 +8,6 @@ pipeline {
             when {
                 anyOf{
                     branch 'prod'
-                    
                 expression {
                     return params.ENV == 'prod' && env.BRANCH_NAME == 'prod'
                 }
